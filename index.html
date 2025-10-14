@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tirth Shah | Portfolio</title>
+  <meta name="description" content="Tirth Shah – Data Science, Machine Learning, Quantitative Finance, and Software projects." />
+  <style>
+    :root { --bg:#ffffff; --ink:#0f172a; --muted:#475569; --line:#e2e8f0; --accent:#0ea5e9; }
+    * { box-sizing:border-box }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color:var(--ink); background:var(--bg); }
+    a { color:var(--accent); text-decoration:none }
+    a:hover { text-decoration:underline }
+    header { position:sticky; top:0; backdrop-filter:saturate(180%) blur(6px); background:rgba(255,255,255,.85); border-bottom:1px solid var(--line) }
+    .wrap { max-width:1000px; margin:0 auto; padding:0 16px }
+    .nav { display:flex; align-items:center; justify-content:space-between; height:64px }
+    .nav a { margin-left:16px; font-size:14px; color:var(--muted) }
+    .btn { display:inline-block; padding:10px 14px; border:1px solid var(--line); border-radius:10px; font-size:14px; }
+    .btn.primary { background:var(--ink); color:#fff; border-color:var(--ink) }
+    .hero { padding:64px 0 32px }
+    .h1 { font-size:32px; margin:0 0 8px }
+    .muted { color:var(--muted) }
+    section { padding:40px 0; border-top:1px solid var(--line) }
+    h2 { font-size:22px; margin:0 0 12px }
+    .grid { display:grid; gap:16px }
+    @media(min-width:720px){ .grid{ grid-template-columns:repeat(3,1fr) } }
+    .card { border:1px solid var(--line); border-radius:12px; padding:16px }
+    footer { border-top:1px solid var(--line); padding:24px 0; color:var(--muted); font-size:12px; text-align:center }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div>Tirth Shah</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="assets/resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1 class="h1">Data Science • Machine Learning • Quantitative Analytics</h1>
+      <p class="muted">Graduate student at the University of Connecticut (M.Eng. CSE). I build practical models and simple systems for markets, healthcare analytics, and education data.</p>
+      <p style="margin-top:16px">
+        <a class="btn primary" href="#projects">View Projects</a>
+        <a class="btn" href="assets/resume.pdf" target="_blank" rel="noopener">Open Resume</a>
+      </p>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p class="muted">I’m focused on time‑series forecasting, Bayesian inference, and turning analysis into decisions. Comfortable with Python, SQL, scikit‑learn, TensorFlow, Power BI, and basic web stacks when needed.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <strong>Portfolio Management System</strong>
+          <p class="muted">ML‑driven allocation and backtests on SPY/ETFs; improved risk‑adjusted returns in sample.</p>
+          <p><a href="https://github.com/TirthShah/portfolio-management-ml" target="_blank">Code</a></p>
+        </article>
+        <article class="card">
+          <strong>Time‑Series Forecasting (LSTM + ARIMA)</strong>
+          <p class="muted">Hybrid forecasting with deep learning and classical models; lower error on holdout window.</p>
+          <p><a href="https://github.com/TirthShah/stock-forecast-lstm-arima" target="_blank">Code</a></p>
+        </article>
+        <article class="card">
+          <strong>Bayesian Market Regime Detection</strong>
+          <p class="muted">Bayesian HMM to infer bull/bear regimes and transition dynamics; posterior state tracking.</p>
+          <p><a href="https://github.com/TirthShah/bayesian-market-regime" target="_blank">Code</a></p>
+        </article>
+        <article class="card">
+          <strong>Healthcare: Readmission Prediction</strong>
+          <p class="muted">Classifies 30‑day readmission risk using EHR‑like features; explains drivers with SHAP.</p>
+          <p><a href="https://github.com/TirthShah/healthcare-analytics" target="_blank">Code</a></p>
+        </article>
+        <article class="card">
+          <strong>Academic Performance Prediction</strong>
+          <p class="muted">Early‑warning model for at‑risk students; ROC‑AUC and PR curves for monitoring.</p>
+          <p><a href="https://github.com/TirthShah/academic-performance-prediction" target="_blank">Code</a></p>
+        </article>
+        <article class="card">
+          <strong>Cloud Portfolio Analytics Dashboard</strong>
+          <p class="muted">Next.js + Flask APIs; automated data pulls and interactive charts (AWS).</p>
+          <p><a href="https://github.com/TirthShah/cloud-portfolio-analytics" target="_blank">Code</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:tirthshah2812@gmail.com">tirthshah2812@gmail.com</a> · GitHub: <a href="https://github.com/TirthShah" target="_blank">@TirthShah</a> · LinkedIn: <a href="https://www.linkedin.com/in/tirthshah2812/" target="_blank">/in/tirthshah2812</a></p>
+    </section>
+  </main>
+
+  <footer>© <span id="y"></span> Tirth Shah</footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
