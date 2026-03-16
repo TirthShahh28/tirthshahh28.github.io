@@ -2,136 +2,109 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FaGithub, FaLinkedin, FaEnvelope, FaFileAlt } from "react-icons/fa";
+import { useEffect, useState } from "react";
+
+const lines = [
+  { prompt: true, text: "cat > aboutMe.md" },
+  { prompt: false, text: "I'm Tirth Shah 👋" },
+  { prompt: false, text: "M.S. Computer Science @ UConn" },
+  {
+    prompt: false,
+    text: "I build production-grade AI systems — RAG pipelines,",
+  },
+  {
+    prompt: false,
+    text: "LLM integrations, search engines & scalable backends.",
+  },
+  { prompt: false, text: "" },
+  { prompt: false, text: "Interests: AI/ML · Full-Stack · Data Engineering" },
+];
 
 export default function Hero() {
-  return (
-    <section
-      id="hero"
-      className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden"
-    >
-      {/* Ambient glow orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/8 rounded-full blur-3xl pointer-events-none" />
+  const [visibleLines, setVisibleLines] = useState(0);
 
-      <div className="max-w-5xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 md:gap-20 relative z-10">
-        <div className="flex-1 text-center md:text-left">
+  useEffect(() => {
+    if (visibleLines < lines.length) {
+      const timeout = setTimeout(
+        () => setVisibleLines((v) => v + 1),
+        visibleLines === 0 ? 600 : 400,
+      );
+      return () => clearTimeout(timeout);
+    }
+  }, [visibleLines]);
+
+  return (
+    <section id="hero" className="min-h-screen flex items-center px-6 pt-20">
+      <div className="max-w-5xl mx-auto w-full flex flex-col md:flex-row items-center gap-12 md:gap-16">
+        {/* Terminal */}
+        <div className="flex-1 w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6"
           >
-            <span className="text-indigo-400 text-sm font-medium">
-              Available for full-time roles
-            </span>
-          </motion.div>
+            <div className="rounded-xl overflow-hidden border border-white/10 bg-[#0e0e0e]">
+              {/* Title bar */}
+              <div className="flex items-center gap-2 px-4 py-3 bg-[#1a1a1a] border-b border-white/5">
+                <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+                <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
+                <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+                <span className="ml-3 text-xs text-slate-500 font-mono">
+                  ~/tirth-shah
+                </span>
+              </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 tracking-tight leading-tight"
-          >
-            Hi, I&apos;m{" "}
-            <span className="gradient-text">Tirth Shah</span>
-          </motion.h1>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl md:text-2xl lg:text-3xl font-medium text-slate-400 mb-6"
-          >
-            AI & Software Engineer
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-slate-400 max-w-xl leading-relaxed mb-8 mx-auto md:mx-0 text-lg"
-          >
-            M.S. in Computer Science at the University of Connecticut. I build
-            intelligent systems — from RAG pipelines and LLM integrations to
-            scalable data workflows.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex items-center gap-4 justify-center md:justify-start flex-wrap"
-          >
-            <a
-              href="mailto:tirth.shah@uconn.edu"
-              className="px-6 py-3 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl font-medium transition-all hover:shadow-lg hover:shadow-indigo-500/25 text-sm"
-            >
-              Get in Touch
-            </a>
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 border border-white/10 hover:border-white/20 text-slate-300 hover:text-white rounded-xl font-medium transition-all hover:bg-white/5 text-sm flex items-center gap-2"
-            >
-              <FaFileAlt size={14} />
-              Resume
-            </a>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="flex items-center gap-5 justify-center md:justify-start mt-8"
-          >
-            <a
-              href="https://github.com/TirthShahh28"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-500 hover:text-indigo-400 transition-colors"
-              aria-label="GitHub"
-            >
-              <FaGithub size={22} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/tirth-shah14/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-500 hover:text-indigo-400 transition-colors"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedin size={22} />
-            </a>
-            <a
-              href="mailto:tirth.shah@uconn.edu"
-              className="text-slate-500 hover:text-indigo-400 transition-colors"
-              aria-label="Email"
-            >
-              <FaEnvelope size={22} />
-            </a>
+              {/* Terminal body */}
+              <div className="p-5 font-mono text-sm leading-7 min-h-65">
+                <p className="text-slate-500 mb-3 text-xs">
+                  # Introducing@Internet
+                </p>
+                {lines.slice(0, visibleLines).map((line, i) => (
+                  <div key={i} className="flex">
+                    {line.prompt ? (
+                      <>
+                        <span className="text-emerald-400 mr-2 select-none">
+                          [ ~ ]$
+                        </span>
+                        <span className="text-emerald-300">{line.text}</span>
+                      </>
+                    ) : (
+                      <span className="text-slate-300">{line.text}</span>
+                    )}
+                  </div>
+                ))}
+                {visibleLines < lines.length && (
+                  <span className="text-emerald-400 cursor-blink">█</span>
+                )}
+                {visibleLines >= lines.length && (
+                  <div className="flex mt-1">
+                    <span className="text-emerald-400 mr-2 select-none">
+                      [ ~ ]$
+                    </span>
+                    <span className="text-emerald-400 cursor-blink">█</span>
+                  </div>
+                )}
+              </div>
+            </div>
           </motion.div>
         </div>
 
+        {/* Photo */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
           className="shrink-0"
         >
-          <div className="relative">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500/30 via-purple-500/20 to-cyan-500/30 blur-2xl scale-110" />
-            <div className="relative w-52 h-52 md:w-72 md:h-72 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl">
-              <Image
-                src="/profile.jpeg"
-                alt="Tirth Shah"
-                width={288}
-                height={288}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
+          <div className="w-52 h-52 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-white/10">
+            <Image
+              src="/profile.jpeg"
+              alt="Tirth Shah"
+              width={256}
+              height={256}
+              className="w-full h-full object-cover"
+              priority
+            />
           </div>
         </motion.div>
       </div>
