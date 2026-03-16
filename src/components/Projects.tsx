@@ -20,10 +20,10 @@ export default function Projects() {
           <motion.div
             key={project.id}
             variants={fadeIn}
-            className="group bg-slate-800/30 border border-slate-800 rounded-lg p-6 hover:border-slate-700 transition-colors"
+            className="glass-card p-6 group flex flex-col"
           >
             <div className="flex items-start justify-between mb-3">
-              <h3 className="text-white font-medium text-lg leading-snug pr-4">
+              <h3 className="text-white font-semibold text-lg leading-snug pr-4">
                 {project.title}
               </h3>
               <div className="flex items-center gap-3 shrink-0 pt-1">
@@ -32,7 +32,7 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-500 hover:text-white transition-colors"
+                    className="text-slate-500 hover:text-indigo-400 transition-colors"
                     aria-label="GitHub"
                   >
                     <FaGithub size={18} />
@@ -43,7 +43,7 @@ export default function Projects() {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-500 hover:text-blue-400 transition-colors"
+                    className="text-slate-500 hover:text-indigo-400 transition-colors"
                     aria-label="Demo"
                   >
                     <FaExternalLinkAlt size={16} />
@@ -51,15 +51,12 @@ export default function Projects() {
                 )}
               </div>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed mb-4">
+            <p className="text-slate-400 text-sm leading-relaxed mb-4 flex-1">
               {project.description}
             </p>
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-400"
-                >
+                <span key={tag} className="tag-pill">
                   {tag}
                 </span>
               ))}

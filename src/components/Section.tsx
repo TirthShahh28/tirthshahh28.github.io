@@ -13,18 +13,20 @@ interface SectionProps {
 
 export default function Section({ id, title, children, className = "" }: SectionProps) {
   return (
-    <section id={id} className={`py-20 px-6 ${className}`}>
-      <div className="max-w-4xl mx-auto">
-        <motion.h2
+    <section id={id} className={`py-24 px-6 ${className}`}>
+      <div className="max-w-5xl mx-auto">
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeIn}
-          className="text-2xl font-semibold text-white mb-10 flex items-center gap-4"
+          className="flex items-center gap-4 mb-12"
         >
-          <span>{title}</span>
-          <span className="flex-1 h-px bg-slate-800" />
-        </motion.h2>
+          <h2 className="text-3xl font-bold text-white whitespace-nowrap">
+            {title}
+          </h2>
+          <div className="section-line flex-1" />
+        </motion.div>
         {children}
       </div>
     </section>

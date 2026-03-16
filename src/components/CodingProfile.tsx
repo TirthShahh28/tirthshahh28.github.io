@@ -14,10 +14,12 @@ export default function CodingProfile() {
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeIn}
       >
-        <div className="bg-slate-800/30 border border-slate-800 rounded-lg p-6 hover:border-slate-700 transition-colors max-w-lg">
+        <div className="glass-card p-6 max-w-lg group">
           <div className="flex items-center gap-3 mb-3">
-            <FaCode className="text-blue-400" size={20} />
-            <h3 className="text-white font-medium">TakeUForward</h3>
+            <div className="p-2 rounded-lg bg-indigo-500/10 border border-indigo-500/20">
+              <FaCode className="text-indigo-400" size={18} />
+            </div>
+            <h3 className="text-white font-semibold text-lg">TakeUForward</h3>
           </div>
           <p className="text-slate-400 text-sm leading-relaxed mb-4">
             Practicing Data Structures & Algorithms on Striver&apos;s A2Z DSA
@@ -28,7 +30,7 @@ export default function CodingProfile() {
             href="https://takeuforward.org/profile/Tirthzz28"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-indigo-400 hover:text-indigo-300 transition-colors font-medium"
           >
             View Profile <FaExternalLinkAlt size={12} />
           </a>

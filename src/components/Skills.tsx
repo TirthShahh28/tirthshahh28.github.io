@@ -13,19 +13,16 @@ export default function Skills() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
-        className="space-y-6"
+        className="grid grid-cols-1 md:grid-cols-2 gap-6"
       >
         {skills.map((group) => (
-          <motion.div key={group.category} variants={fadeIn}>
-            <h3 className="text-white text-sm font-medium mb-3">
+          <motion.div key={group.category} variants={fadeIn} className="glass-card p-6">
+            <h3 className="text-indigo-400 text-sm font-semibold uppercase tracking-wider mb-4">
               {group.category}
             </h3>
             <div className="flex flex-wrap gap-2">
               {group.items.map((item) => (
-                <span
-                  key={item}
-                  className="text-sm px-3 py-1.5 rounded bg-slate-800/60 border border-slate-700/50 text-slate-300"
-                >
+                <span key={item} className="tag-pill">
                   {item}
                 </span>
               ))}

@@ -8,7 +8,6 @@ const navLinks = [
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
-  { href: "#coding", label: "Coding" },
   { href: "#education", label: "Education" },
   { href: "#contact", label: "Contact" },
 ];
@@ -27,21 +26,21 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#0f172a]/90 backdrop-blur-sm border-b border-slate-800"
+          ? "bg-[#0a0a1a]/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/10"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#hero" className="text-lg font-semibold text-white tracking-tight">
-          Tirth Shah
+      <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="#hero" className="text-lg font-bold text-white tracking-tight">
+          <span className="gradient-text">TS</span>
         </a>
 
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-slate-400 hover:text-slate-200 transition-colors text-sm"
+              className="text-slate-400 hover:text-white transition-colors text-sm px-3 py-2 rounded-lg hover:bg-white/5"
             >
               {link.label}
             </a>
@@ -50,14 +49,14 @@ export default function Navbar() {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm px-4 py-1.5 border border-blue-500 text-blue-400 rounded hover:bg-blue-500/10 transition-colors"
+            className="ml-2 text-sm px-4 py-2 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 rounded-lg hover:bg-indigo-500/20 transition-all"
           >
             Resume
           </a>
         </div>
 
         <button
-          className="md:hidden text-slate-400 hover:text-white"
+          className="md:hidden text-slate-400 hover:text-white p-2 rounded-lg hover:bg-white/5 transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -66,13 +65,13 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-[#0f172a] border-t border-slate-800">
-          <div className="flex flex-col items-center gap-4 py-6">
+        <div className="md:hidden bg-[#0a0a1a]/95 backdrop-blur-xl border-t border-white/5">
+          <div className="flex flex-col items-center gap-2 py-6 px-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-slate-400 hover:text-white transition-colors"
+                className="text-slate-400 hover:text-white transition-colors w-full text-center py-2 rounded-lg hover:bg-white/5"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
@@ -82,7 +81,7 @@ export default function Navbar() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm px-4 py-1.5 border border-blue-500 text-blue-400 rounded hover:bg-blue-500/10 transition-colors"
+              className="mt-2 text-sm px-4 py-2 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 rounded-lg hover:bg-indigo-500/20 transition-all"
             >
               Resume
             </a>

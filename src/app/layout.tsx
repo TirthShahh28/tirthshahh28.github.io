@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn("scroll-smooth", "font-sans", geist.variable)}>
-      <body className={`${inter.variable} font-sans antialiased bg-[#0f172a]`}>
+      <body className={`${inter.variable} font-sans antialiased bg-[#0a0a1a]`}>
         <Navbar />
         <main>{children}</main>
         <Footer />
