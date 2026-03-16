@@ -14,12 +14,20 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Light mode (default) */
 body {
-  background-color: #0a0a0a;
-  color: #e2e8f0;
+  background-color: #f8fafc;
+  color: #1e293b;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background-color: #0a0a0a;
+  color: #e2e8f0;
 }
 
 ::selection {
@@ -32,6 +40,10 @@ body {
 }
 
 ::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
   background: #0a0a0a;
 }
 
@@ -82,12 +94,12 @@ body {
   );
 }
 
-/* Timeline dot */
+/* Timeline dot — light mode */
 .timeline-dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #0a0a0a;
+  background: #f8fafc;
   border: 2px solid #4ade80;
   position: absolute;
   left: -22px;
@@ -95,19 +107,28 @@ body {
   z-index: 1;
 }
 
-/* Section header */
-.section-header {
-  margin-bottom: 2rem;
+body.dark-mode .timeline-dot {
+  background: #0a0a0a;
 }
 
+/* Section header */
+.section-header {
+  margin-bottom: 1.25rem;
+}
+
+/* Section title — light mode */
 .section-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #fff;
+  color: #0f172a;
   margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
+}
+
+body.dark-mode .section-title {
+  color: #fff;
 }
 
 .section-title::after {
@@ -121,23 +142,32 @@ body {
   color: #4ade80;
 }
 
-/* Project card */
+/* Project card — light mode */
 .project-card {
-  background: #141414;
+  background: #ffffff;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid #e2e8f0;
   transition:
     transform 0.3s ease,
     border-color 0.3s ease;
 }
 
+body.dark-mode .project-card {
+  background: #141414;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
 .project-card:hover {
   transform: translateY(-4px);
+  border-color: rgba(74, 222, 128, 0.3);
+}
+
+body.dark-mode .project-card:hover {
   border-color: rgba(74, 222, 128, 0.2);
 }
 
-/* Skill icon tile */
+/* Skill tile — light mode */
 .skill-tile {
   display: flex;
   flex-direction: column;
@@ -145,28 +175,48 @@ body {
   gap: 0.5rem;
   padding: 1rem;
   border-radius: 12px;
-  background: #141414;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   transition: all 0.2s ease;
 }
 
+body.dark-mode .skill-tile {
+  background: #141414;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
 .skill-tile:hover {
+  border-color: rgba(74, 222, 128, 0.3);
+  background: #f1f5f9;
+}
+
+body.dark-mode .skill-tile:hover {
   border-color: rgba(74, 222, 128, 0.2);
   background: #1a1a1a;
 }
 
-/* Activity card */
+/* Activity card — light mode */
 .activity-card {
-  background: #141414;
+  background: #ffffff;
   border-radius: 16px;
   padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid #e2e8f0;
   display: flex;
   flex-direction: column;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+body.dark-mode .activity-card {
+  background: #141414;
+  border-color: rgba(255, 255, 255, 0.06);
 }
 
 .activity-card:hover {
+  border-color: rgba(74, 222, 128, 0.3);
+  transform: translateY(-2px);
+}
+
+body.dark-mode .activity-card:hover {
   border-color: rgba(74, 222, 128, 0.15);
 }
 

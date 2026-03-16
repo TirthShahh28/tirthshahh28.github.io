@@ -6,22 +6,32 @@ import { useEffect, useState } from "react";
 
 const lines = [
   { prompt: true, text: "cat > aboutMe.md" },
-  { prompt: false, text: "I'm Tirth Shah 👋" },
+  { prompt: false, text: "I'm Tirth Shah" },
   { prompt: false, text: "M.S. Computer Science @ UConn" },
   {
     prompt: false,
-    text: "I build production-grade AI systems — RAG pipelines,",
+    text: "I build production-grade AI systems \u2014 RAG pipelines,",
   },
   {
     prompt: false,
     text: "LLM integrations, search engines & scalable backends.",
   },
   { prompt: false, text: "" },
-  { prompt: false, text: "Interests: AI/ML · Full-Stack · Data Engineering" },
+  { prompt: false, text: "Interests: AI/ML \u00B7 Full-Stack \u00B7 Data Engineering" },
 ];
 
 export default function Hero() {
   const [visibleLines, setVisibleLines] = useState(0);
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDark(document.body.classList.contains("dark-mode"));
+    });
+    observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+    setIsDark(document.body.classList.contains("dark-mode"));
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (visibleLines < lines.length) {
@@ -35,8 +45,8 @@ export default function Hero() {
 
   return (
     <section id="hero" className="min-h-[85vh] flex items-center px-6 pt-16">
-      <div className="max-w-5xl mx-auto w-full flex flex-col md:flex-row items-center gap-10 md:gap-14">
-        {/* Terminal */}
+      <div className="max-w-6xl mx-auto w-full flex flex-col md:flex-row items-center gap-10 md:gap-14">
+        {/* Terminal - always dark themed */}
         <div className="flex-1 w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -96,7 +106,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="shrink-0"
         >
-          <div className="w-52 h-52 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-white/10">
+          <div className={`w-52 h-52 md:w-64 md:h-64 rounded-2xl overflow-hidden border ${
+            isDark ? "border-white/10" : "border-slate-200"
+          }`}>
             <Image
               src="/profile.jpeg"
               alt="Tirth Shah"

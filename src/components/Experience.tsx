@@ -3,11 +3,23 @@
 import { motion } from "framer-motion";
 import { experience } from "@/data/experience";
 import { fadeIn, stagger } from "@/lib/animations";
+import { useEffect, useState } from "react";
 
 export default function Experience() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDark(document.body.classList.contains("dark-mode"));
+    });
+    observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+    setIsDark(document.body.classList.contains("dark-mode"));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="experience" className="py-14 px-6">
-      <div className="max-w-5xl mx-auto">
+    <section id="experience" className="py-10 px-6">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -32,15 +44,15 @@ export default function Experience() {
               <motion.div key={index} variants={fadeIn} className="relative">
                 <div className="timeline-dot" />
                 <div>
-                  <p className="text-emerald-400 text-xs font-medium mb-0.5">
+                  <p className="text-emerald-500 text-xs font-medium mb-0.5">
                     {item.company}
                   </p>
-                  <h3 className="text-white font-semibold text-base mb-0.5">
+                  <h3 className={`font-semibold text-base mb-0.5 ${isDark ? "text-white" : "text-slate-900"}`}>
                     {item.role}
                   </h3>
                   <p className="text-slate-500 text-xs mb-2">{item.date}</p>
                   <p className="text-slate-400 text-xs leading-relaxed">
-                    {item.tags.join(" · ")}
+                    {item.tags.join(" \u00B7 ")}
                   </p>
                 </div>
               </motion.div>
@@ -50,10 +62,10 @@ export default function Experience() {
             <motion.div variants={fadeIn} className="relative">
               <div className="timeline-dot" />
               <div>
-                <h3 className="text-white font-semibold text-base mb-0.5">
+                <h3 className={`font-semibold text-base mb-0.5 ${isDark ? "text-white" : "text-slate-900"}`}>
                   Next Role
                 </h3>
-                <p className="text-emerald-400 text-xs">
+                <p className="text-emerald-500 text-xs">
                   Open to Work as AI / Software Engineer
                 </p>
                 <p className="text-slate-500 text-xs">2026</p>
