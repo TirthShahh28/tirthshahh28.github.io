@@ -6,19 +6,19 @@ import { fadeIn, stagger } from "@/lib/animations";
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 px-6">
+    <section id="experience" className="py-14 px-6">
       <div className="max-w-5xl mx-auto">
-        <motion.h2
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeIn}
-          className="section-title"
+          className="section-header"
         >
-          Experience
-        </motion.h2>
+          <h2 className="section-title">Experience</h2>
+        </motion.div>
 
-        <div className="relative pl-8">
+        <div className="relative" style={{ paddingLeft: '28px' }}>
           <div className="timeline-line" />
 
           <motion.div
@@ -26,21 +26,21 @@ export default function Experience() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="space-y-12"
+            className="space-y-8"
           >
             {experience.map((item, index) => (
               <motion.div key={index} variants={fadeIn} className="relative">
                 <div className="timeline-dot" />
                 <div>
-                  <p className="text-emerald-400 text-sm font-medium mb-1">
+                  <p className="text-emerald-400 text-xs font-medium mb-0.5">
                     {item.company}
                   </p>
-                  <h3 className="text-white font-semibold text-lg mb-1">
+                  <h3 className="text-white font-semibold text-base mb-0.5">
                     {item.role}
                   </h3>
-                  <p className="text-slate-500 text-sm mb-3">{item.date}</p>
-                  <p className="text-slate-400 text-sm leading-relaxed">
-                    {item.tags.join(", ")}
+                  <p className="text-slate-500 text-xs mb-2">{item.date}</p>
+                  <p className="text-slate-400 text-xs leading-relaxed">
+                    {item.tags.join(" · ")}
                   </p>
                 </div>
               </motion.div>
@@ -50,13 +50,13 @@ export default function Experience() {
             <motion.div variants={fadeIn} className="relative">
               <div className="timeline-dot" />
               <div>
-                <h3 className="text-white font-semibold text-lg mb-1">
+                <h3 className="text-white font-semibold text-base mb-0.5">
                   Next Role
                 </h3>
-                <p className="text-emerald-400 text-sm">
+                <p className="text-emerald-400 text-xs">
                   Open to Work as AI / Software Engineer
                 </p>
-                <p className="text-slate-500 text-sm">2026</p>
+                <p className="text-slate-500 text-xs">2026</p>
               </div>
             </motion.div>
           </motion.div>

@@ -6,7 +6,7 @@ import { fadeIn } from "@/lib/animations";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 px-6">
+    <section id="contact" className="py-14 px-6">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial="hidden"
@@ -15,11 +15,11 @@ export default function Contact() {
           variants={fadeIn}
           className="text-center"
         >
-          <h2 className="text-3xl font-bold text-white mb-4">
+          <h2 className="text-xl font-semibold text-white mb-3">
             Wanna Build something together?
           </h2>
 
-          <div className="mt-8 space-y-6">
+          <div className="mt-5 space-y-4">
             <div>
               <p className="text-slate-500 text-xs uppercase tracking-wider mb-2">
                 Email

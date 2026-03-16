@@ -34,8 +34,8 @@ export default function Hero() {
   }, [visibleLines]);
 
   return (
-    <section id="hero" className="min-h-screen flex items-center px-6 pt-20">
-      <div className="max-w-5xl mx-auto w-full flex flex-col md:flex-row items-center gap-12 md:gap-16">
+    <section id="hero" className="min-h-[85vh] flex items-center px-6 pt-16">
+      <div className="max-w-5xl mx-auto w-full flex flex-col md:flex-row items-center gap-10 md:gap-14">
         {/* Terminal */}
         <div className="flex-1 w-full">
           <motion.div

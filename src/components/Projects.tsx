@@ -7,17 +7,17 @@ import { fadeIn, stagger } from "@/lib/animations";
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 px-6">
+    <section id="projects" className="py-14 px-6">
       <div className="max-w-5xl mx-auto">
-        <motion.h2
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeIn}
-          className="section-title"
+          className="section-header"
         >
-          Projects
-        </motion.h2>
+          <h2 className="section-title">Projects</h2>
+        </motion.div>
 
         <motion.div
           variants={stagger}

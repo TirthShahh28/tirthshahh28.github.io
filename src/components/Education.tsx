@@ -7,19 +7,19 @@ import { FaGraduationCap } from "react-icons/fa";
 
 export default function Education() {
   return (
-    <section id="education" className="py-20 px-6">
+    <section id="education" className="py-14 px-6">
       <div className="max-w-5xl mx-auto">
-        <motion.h2
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeIn}
-          className="section-title"
+          className="section-header"
         >
-          Education
-        </motion.h2>
+          <h2 className="section-title">Education</h2>
+        </motion.div>
 
-        <div className="relative pl-8">
+        <div className="relative" style={{ paddingLeft: '28px' }}>
           <div className="timeline-line" />
 
           <motion.div
@@ -27,27 +27,27 @@ export default function Education() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="space-y-12"
+            className="space-y-8"
           >
             {education.map((item, index) => (
               <motion.div key={index} variants={fadeIn} className="relative">
                 <div className="timeline-dot" />
                 <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <FaGraduationCap className="text-emerald-400" size={16} />
-                    <p className="text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <FaGraduationCap className="text-emerald-400" size={14} />
+                    <p className="text-emerald-400 text-xs font-medium">
                       {item.school}
                     </p>
                   </div>
-                  <h3 className="text-white font-semibold text-lg mb-1">
+                  <h3 className="text-white font-semibold text-base mb-0.5">
                     {item.degree}
                   </h3>
-                  <p className="text-slate-500 text-sm mb-1">
+                  <p className="text-slate-500 text-xs mb-0.5">
                     {item.location} · GPA: {item.gpa}
                   </p>
-                  <p className="text-slate-600 text-sm">{item.date}</p>
+                  <p className="text-slate-600 text-xs">{item.date}</p>
                   {item.coursework.length > 0 && (
-                    <p className="text-slate-500 text-xs mt-2">
+                    <p className="text-slate-500 text-xs mt-1.5 leading-relaxed">
                       {item.coursework.join(" · ")}
                     </p>
                   )}
