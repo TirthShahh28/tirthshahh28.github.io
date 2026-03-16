@@ -1,34 +1,22 @@
 export const skills = [
   {
+    category: 'AI / ML',
+    items: ['LangChain', 'OpenAI API', 'Hugging Face Transformers', 'RAG Pipelines', 'scikit-learn', 'PyTorch', 'Prompt Engineering'],
+  },
+  {
     category: 'Languages',
-    iconName: 'FaCode',
-    color: 'cyan',
-    items: ['Python', 'JavaScript', 'TypeScript', 'C++', 'SQL', 'R'],
+    items: ['Python', 'SQL', 'Java', 'TypeScript', 'C++', 'Bash'],
   },
   {
-    category: 'AI / ML Frameworks',
-    iconName: 'FaBrain',
-    color: 'violet',
-    items: [
-      'PyTorch',
-      'TensorFlow',
-      'Hugging Face',
-      'scikit-learn',
-      'LangChain',
-      'OpenCV',
-      'Keras',
-    ],
+    category: 'Vector DBs & Search',
+    items: ['Pinecone', 'ChromaDB', 'FAISS', 'MeiliSearch', 'Elasticsearch'],
   },
   {
-    category: 'Tools & Platforms',
-    iconName: 'FaTools',
-    color: 'emerald',
-    items: ['Docker', 'AWS', 'GCP', 'MLflow', 'Git', 'Linux', 'W&B'],
+    category: 'Model Serving & APIs',
+    items: ['FastAPI', 'Docker', 'REST APIs', 'Webhooks', 'CI/CD', 'AWS (S3, EC2, SageMaker)'],
   },
   {
-    category: 'Web & Data',
-    iconName: 'FaDatabase',
-    color: 'amber',
-    items: ['React', 'Node.js', 'FastAPI', 'PostgreSQL', 'MongoDB', 'Spark'],
+    category: 'Data & MLOps',
+    items: ['Pandas', 'NumPy', 'ETL Pipelines', 'Feature Engineering', 'Airflow', 'PostgreSQL', 'MongoDB', 'Redis'],
   },
 ]

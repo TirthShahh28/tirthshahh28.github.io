@@ -1,15 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-heading: 'Space Grotesk', system-ui, sans-serif;
-
-  --color-dark: #0a0a0f;
-  --color-dark-card: rgba(255, 255, 255, 0.05);
-  --color-dark-border: rgba(255, 255, 255, 0.1);
-  --color-cyan: #06b6d4;
-  --color-violet: #8b5cf6;
-  --color-emerald: #10b981;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 * {
@@ -24,31 +17,31 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-dark);
-  color: #e5e7eb;
+  background-color: #0f172a;
+  color: #cbd5e1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
 ::selection {
-  background-color: rgba(139, 92, 246, 0.3);
+  background-color: rgba(59, 130, 246, 0.3);
   color: #fff;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0f;
+  background: #0f172a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.4);
-  border-radius: 4px;
+  background: rgba(100, 116, 139, 0.4);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(139, 92, 246, 0.6);
+  background: rgba(100, 116, 139, 0.6);
 }

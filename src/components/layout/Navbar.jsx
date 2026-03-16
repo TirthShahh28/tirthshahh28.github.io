@@ -3,12 +3,11 @@ import { Link } from 'react-scroll'
 import { FaBars, FaTimes } from 'react-icons/fa'
 
 const navLinks = [
-  { to: 'hero', label: 'Home' },
   { to: 'about', label: 'About' },
+  { to: 'experience', label: 'Experience' },
   { to: 'projects', label: 'Projects' },
   { to: 'skills', label: 'Skills' },
   { to: 'education', label: 'Education' },
-  { to: 'experience', label: 'Experience' },
   { to: 'contact', label: 'Contact' },
 ]
 
@@ -25,25 +24,20 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[#0a0a0f]/80 backdrop-blur-md shadow-lg shadow-black/20'
-          : 'bg-transparent'
+        scrolled ? 'bg-[#0f172a]/90 backdrop-blur-sm border-b border-slate-800' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link
           to="hero"
           smooth
           duration={500}
-          className="text-xl font-bold cursor-pointer font-[family-name:var(--font-heading)]"
+          className="text-lg font-semibold text-white cursor-pointer tracking-tight"
         >
-          <span className="bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent">
-            Tirth
-          </span>
+          Tirth Shah
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -52,27 +46,33 @@ export default function Navbar() {
               smooth
               offset={-80}
               duration={500}
-              activeClass="!text-cyan-400"
-              className="text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer text-sm font-medium"
+              activeClass="!text-blue-400"
+              className="text-slate-400 hover:text-slate-200 transition-colors cursor-pointer text-sm"
             >
               {link.label}
             </Link>
           ))}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm px-4 py-1.5 border border-blue-500 text-blue-400 rounded hover:bg-blue-500/10 transition-colors"
+          >
+            Resume
+          </a>
         </div>
 
-        {/* Mobile hamburger */}
         <button
-          className="md:hidden text-gray-400 hover:text-white text-xl"
+          className="md:hidden text-slate-400 hover:text-white"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
-          {mobileOpen ? <FaTimes /> : <FaBars />}
+          {mobileOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-[#0a0a0f]/95 backdrop-blur-md border-t border-white/10">
+        <div className="md:hidden bg-[#0f172a] border-t border-slate-800">
           <div className="flex flex-col items-center gap-4 py-6">
             {navLinks.map((link) => (
               <Link
@@ -82,12 +82,20 @@ export default function Navbar() {
                 smooth
                 offset={-80}
                 duration={500}
-                className="text-gray-400 hover:text-white transition-colors cursor-pointer text-base"
+                className="text-slate-400 hover:text-white transition-colors cursor-pointer"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm px-4 py-1.5 border border-blue-500 text-blue-400 rounded hover:bg-blue-500/10 transition-colors"
+            >
+              Resume
+            </a>
           </div>
         </div>
       )}

@@ -1,62 +1,20 @@
 export const projects = [
   {
     id: 1,
-    title: 'LLM Fine-Tuning Pipeline',
+    title: 'LLM-Powered Document Q&A System',
     description:
-      'Built an end-to-end pipeline for fine-tuning large language models using LoRA and QLoRA techniques on custom datasets with automated evaluation.',
-    tags: ['Python', 'PyTorch', 'Hugging Face', 'LoRA'],
-    github: 'https://github.com/',
+      'Built end-to-end RAG system that ingests documents, generates embeddings via OpenAI API, stores them in Pinecone vector DB, and serves context-aware LLM responses through FastAPI REST endpoints. Implemented intelligent chunking with sub-second retrieval for 10K+ chunks. Integrated LangChain with prompt engineering to reduce hallucinations.',
+    tags: ['LangChain', 'OpenAI', 'Pinecone', 'FastAPI', 'Docker'],
+    github: 'https://github.com/TirthShahh28',
     demo: null,
-    featured: true,
   },
   {
     id: 2,
-    title: 'Real-Time Object Detection',
+    title: 'AI-Integrated Search & Recommendation Engine',
     description:
-      'Developed a computer vision system for real-time object detection using YOLOv8 with custom training on domain-specific datasets.',
-    tags: ['Python', 'OpenCV', 'YOLOv8', 'TensorFlow'],
-    github: 'https://github.com/',
+      'Integrated AI-powered search into production e-commerce platform (30,000+ products) with typo tolerance, synonym handling, and multi-field relevance ranking. Designed real-time indexing pipeline achieving sub-50ms query latency (100x improvement). Implemented search analytics and query logging to improve ranking relevance.',
+    tags: ['MeiliSearch', 'Next.js', 'TypeScript', 'Search AI'],
+    github: 'https://github.com/TirthShahh28',
     demo: null,
-    featured: true,
-  },
-  {
-    id: 3,
-    title: 'RAG-Powered Q&A System',
-    description:
-      'Created a Retrieval-Augmented Generation system using vector databases and LLMs to answer questions from private document collections.',
-    tags: ['LangChain', 'Pinecone', 'OpenAI', 'FastAPI'],
-    github: 'https://github.com/',
-    demo: null,
-    featured: true,
-  },
-  {
-    id: 4,
-    title: 'ML Model Deployment Platform',
-    description:
-      'Designed a scalable platform for deploying ML models with monitoring, A/B testing, and automated retraining capabilities.',
-    tags: ['Docker', 'MLflow', 'AWS', 'FastAPI'],
-    github: 'https://github.com/',
-    demo: null,
-    featured: false,
-  },
-  {
-    id: 5,
-    title: 'Sentiment Analysis Dashboard',
-    description:
-      'Built an interactive dashboard for real-time sentiment analysis of social media data with visualization and trend detection.',
-    tags: ['React', 'Python', 'NLP', 'D3.js'],
-    github: 'https://github.com/',
-    demo: null,
-    featured: false,
-  },
-  {
-    id: 6,
-    title: 'Neural Style Transfer App',
-    description:
-      'Implemented a neural style transfer application that transforms photos into artistic styles using deep convolutional neural networks.',
-    tags: ['PyTorch', 'CNN', 'Streamlit', 'Python'],
-    github: 'https://github.com/',
-    demo: null,
-    featured: false,
   },
 ]

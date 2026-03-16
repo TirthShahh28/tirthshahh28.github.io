@@ -1,74 +1,50 @@
 import { motion } from 'framer-motion'
-import { FaGithub, FaLinkedin, FaEnvelope, FaGoogleScholar } from 'react-icons/fa6'
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
 import Section from '../layout/Section'
-import { fadeInUp, staggerContainer, scaleIn } from '../../utils/animations'
-
-const socials = [
-  {
-    icon: <FaGithub size={28} />,
-    label: 'GitHub',
-    href: 'https://github.com/TirthShahh28',
-    color: 'hover:text-white hover:border-white/40 hover:shadow-white/10',
-  },
-  {
-    icon: <FaLinkedin size={28} />,
-    label: 'LinkedIn',
-    href: 'https://linkedin.com/',
-    color: 'hover:text-blue-400 hover:border-blue-400/40 hover:shadow-blue-400/10',
-  },
-  {
-    icon: <FaEnvelope size={28} />,
-    label: 'Email',
-    href: 'mailto:your.email@example.com',
-    color: 'hover:text-cyan-400 hover:border-cyan-400/40 hover:shadow-cyan-400/10',
-  },
-  {
-    icon: <FaGoogleScholar size={28} />,
-    label: 'Scholar',
-    href: 'https://scholar.google.com/',
-    color: 'hover:text-emerald-400 hover:border-emerald-400/40 hover:shadow-emerald-400/10',
-  },
-]
+import { fadeIn } from '../../utils/animations'
 
 export default function Contact() {
   return (
-    <Section id="contact" title="Let's Connect">
+    <Section id="contact" title="Contact">
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        variants={fadeInUp}
-        className="text-center mb-10"
+        variants={fadeIn}
+        className="max-w-lg"
       >
-        <p className="text-gray-400 max-w-lg mx-auto">
-          I&apos;m currently looking for AI Engineering opportunities. Whether you have a
-          question, a project idea, or just want to say hi — feel free to reach out!
+        <p className="text-slate-300 leading-relaxed mb-6">
+          I&apos;m actively looking for full-time AI Engineering roles starting May 2026.
+          If you have an opportunity, want to collaborate, or just want to chat — feel free
+          to reach out.
         </p>
-      </motion.div>
 
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="flex items-center justify-center gap-6 flex-wrap"
-      >
-        {socials.map((social) => (
-          <motion.a
-            key={social.label}
-            variants={scaleIn}
-            whileHover={{ scale: 1.15 }}
-            whileTap={{ scale: 0.95 }}
-            href={social.href}
-            target={social.href.startsWith('mailto') ? undefined : '_blank'}
-            rel="noopener noreferrer"
-            className={`flex flex-col items-center gap-2 w-24 h-24 rounded-xl bg-white/5 border border-white/10 justify-center text-gray-500 transition-all duration-300 shadow-lg ${social.color}`}
-            aria-label={social.label}
+        <div className="flex items-center gap-5">
+          <a
+            href="mailto:jmt24002@uconn.edu"
+            className="text-sm px-5 py-2.5 border border-blue-500 text-blue-400 rounded hover:bg-blue-500/10 transition-colors"
           >
-            {social.icon}
-            <span className="text-xs font-medium">{social.label}</span>
-          </motion.a>
-        ))}
+            jmt24002@uconn.edu
+          </a>
+          <a
+            href="https://github.com/TirthShahh28"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-400 hover:text-white transition-colors"
+            aria-label="GitHub"
+          >
+            <FaGithub size={22} />
+          </a>
+          <a
+            href="https://linkedin.com/in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-400 hover:text-white transition-colors"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin size={22} />
+          </a>
+        </div>
       </motion.div>
     </Section>
   )

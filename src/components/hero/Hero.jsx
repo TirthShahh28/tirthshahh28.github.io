@@ -1,96 +1,103 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-scroll'
-import { FaDownload, FaArrowRight, FaChevronDown } from 'react-icons/fa'
-import ParticlesBg from './ParticlesBg'
-import TypedTagline from './TypedTagline'
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="min-h-screen flex items-center justify-center px-6"
     >
-      <ParticlesBg />
-
-      <div className="relative z-10 text-center px-6">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-gray-400 text-lg mb-4 tracking-widest uppercase"
-        >
-          Welcome to my portfolio
-        </motion.p>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="text-5xl md:text-7xl font-bold font-[family-name:var(--font-heading)] mb-6"
-        >
-          Hi, I&apos;m{' '}
-          <span className="bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent">
-            Tirth
-          </span>
-        </motion.h1>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-xl md:text-2xl text-gray-300 mb-8"
-        >
-          I&apos;m a <TypedTagline />
-        </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-gray-400 max-w-xl mx-auto mb-10 leading-relaxed"
-        >
-          Master&apos;s student passionate about building intelligent systems.
-          Exploring the intersection of AI, machine learning, and software engineering.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.0 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <a
-            href="/resume.pdf"
-            download
-            className="group flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 text-white font-medium hover:shadow-lg hover:shadow-violet-500/25 transition-all duration-300"
+      <div className="max-w-5xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 md:gap-16">
+        {/* Text */}
+        <div className="flex-1 text-center md:text-left">
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="text-blue-400 text-sm font-medium mb-3"
           >
-            <FaDownload className="group-hover:animate-bounce" />
-            Download Resume
-          </a>
-          <Link
-            to="contact"
-            smooth
-            duration={500}
-            offset={-80}
-            className="group flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-gray-300 hover:border-cyan-400 hover:text-cyan-400 transition-all duration-300 cursor-pointer"
+            Hi, my name is
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 tracking-tight"
           >
-            Get in Touch
-            <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-          </Link>
+            Tirth Shah
+          </motion.h1>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="text-2xl md:text-3xl lg:text-4xl font-semibold text-slate-400 mb-6"
+          >
+            AI & Software Engineer
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            className="text-slate-400 max-w-lg leading-relaxed mb-8 mx-auto md:mx-0"
+          >
+            M.S. in Computer Science at the University of Connecticut. I build
+            intelligent systems — from RAG pipelines and LLM integrations to
+            scalable data workflows. Currently seeking full-time AI Engineering roles.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.4 }}
+            className="flex items-center gap-5 justify-center md:justify-start"
+          >
+            <a
+              href="https://github.com/TirthShahh28"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white transition-colors"
+              aria-label="GitHub"
+            >
+              <FaGithub size={22} />
+            </a>
+            <a
+              href="https://linkedin.com/in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white transition-colors"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin size={22} />
+            </a>
+            <a
+              href="mailto:jmt24002@uconn.edu"
+              className="text-slate-400 hover:text-white transition-colors"
+              aria-label="Email"
+            >
+              <FaEnvelope size={22} />
+            </a>
+          </motion.div>
+        </div>
+
+        {/* Photo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="shrink-0"
+        >
+          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-slate-700">
+            <img
+              src="/profile.jpeg"
+              alt="Tirth Shah"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <Link to="about" smooth duration={500} offset={-80} className="cursor-pointer">
-          <FaChevronDown className="text-gray-500 text-xl animate-bounce" />
-        </Link>
-      </motion.div>
     </section>
   )
 }

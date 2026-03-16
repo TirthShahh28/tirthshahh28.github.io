@@ -1,33 +1,24 @@
 export const education = [
   {
-    date: '2024 — 2026',
-    degree: "Master of Science in Computer Science",
-    school: 'Your University Name',
-    gpa: 'GPA: 3.9/4.0',
-    description:
-      'Specialization in Artificial Intelligence and Machine Learning. Conducting research in natural language processing and deep learning.',
+    date: 'Aug 2024 — May 2026',
+    degree: 'M.S., Computer Science and Engineering',
+    school: 'University of Connecticut',
+    location: 'Hartford, CT',
+    gpa: '3.6/4.0',
     coursework: [
+      'Bayesian Machine Learning',
+      'Data Mining',
+      'Big Data Algorithms',
       'Deep Learning',
-      'Natural Language Processing',
-      'Computer Vision',
-      'Reinforcement Learning',
-      'Distributed Systems',
-      'Advanced Algorithms',
+      'System Design',
     ],
   },
   {
-    date: '2020 — 2024',
-    degree: "Bachelor of Technology in Computer Science",
-    school: 'Your University Name',
-    gpa: 'GPA: 3.7/4.0',
-    description:
-      'Strong foundation in computer science fundamentals, data structures, algorithms, and software engineering principles.',
-    coursework: [
-      'Data Structures',
-      'Machine Learning',
-      'Database Systems',
-      'Operating Systems',
-      'Software Engineering',
-    ],
+    date: 'Aug 2020 — May 2024',
+    degree: 'B.Tech, Computer Science and Engineering',
+    school: 'Charotar University',
+    location: 'Gujarat, India',
+    gpa: '3.7/4.0',
+    coursework: [],
   },
 ]
