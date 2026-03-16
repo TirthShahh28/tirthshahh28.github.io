@@ -7,7 +7,7 @@ const socials = [
   {
     icon: <FaGithub size={28} />,
     label: 'GitHub',
-    href: 'https://github.com/tirthshah2812',
+    href: 'https://github.com/TirthShahh28',
     color: 'hover:text-white hover:border-white/40 hover:shadow-white/10',
   },
   {
