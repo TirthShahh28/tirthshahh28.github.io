@@ -34,18 +34,7 @@ export default function RootLayout({
       lang="en"
       className={cn("scroll-smooth", "font-sans", geist.variable)}
     >
-      <body className={`${inter.variable} font-sans antialiased`}>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                if (localStorage.getItem('theme') === 'dark') {
-                  document.body.classList.add('dark-mode');
-                }
-              } catch(e) {}
-            `,
-          }}
-        />
+      <body className={`${inter.variable} font-sans antialiased dark-mode`}>
         <Navbar />
         <main>{children}</main>
         <Footer />

@@ -3,22 +3,10 @@
 import { motion } from "framer-motion";
 import { skills } from "@/data/skills";
 import { fadeIn, stagger } from "@/lib/animations";
-import { useEffect, useState } from "react";
 
 export default function Skills() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      setIsDark(document.body.classList.contains("dark-mode"));
-    });
-    observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
-    setIsDark(document.body.classList.contains("dark-mode"));
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section id="skills" className="py-10 px-6">
+    <section id="skills" className="py-16 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial="hidden"
@@ -41,11 +29,7 @@ export default function Skills() {
             <motion.div
               key={group.category}
               variants={fadeIn}
-              className={`rounded-xl p-5 border ${
-                isDark
-                  ? "bg-[#141414] border-white/6"
-                  : "bg-white border-slate-200"
-              }`}
+              className="rounded-xl p-5 border bg-[#141414] border-white/6"
             >
               <h3 className="text-emerald-500 text-xs font-semibold uppercase tracking-wider mb-3">
                 {group.category}
@@ -54,11 +38,7 @@ export default function Skills() {
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className={`text-xs px-2.5 py-1 rounded-md border ${
-                      isDark
-                        ? "text-slate-300 bg-white/5 border-white/8"
-                        : "text-slate-600 bg-slate-50 border-slate-200"
-                    }`}
+                    className="text-xs px-2.5 py-1 rounded-md border text-slate-300 bg-white/5 border-white/8"
                   >
                     {item}
                   </span>

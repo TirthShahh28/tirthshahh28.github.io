@@ -3,22 +3,10 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { fadeIn } from "@/lib/animations";
-import { useEffect, useState } from "react";
 
 export default function Contact() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      setIsDark(document.body.classList.contains("dark-mode"));
-    });
-    observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
-    setIsDark(document.body.classList.contains("dark-mode"));
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section id="contact" className="py-10 px-6">
+    <section id="contact" className="py-16 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial="hidden"
@@ -27,7 +15,7 @@ export default function Contact() {
           variants={fadeIn}
           className="text-center"
         >
-          <h2 className={`text-xl font-semibold mb-3 ${isDark ? "text-white" : "text-slate-900"}`}>
+          <h2 className="text-xl font-semibold mb-3 text-white">
             Wanna Build something together?
           </h2>
 
@@ -53,7 +41,7 @@ export default function Contact() {
                   href="https://www.linkedin.com/in/tirth-shah14/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`hover:text-emerald-500 transition-colors ${isDark ? "text-slate-400" : "text-slate-500"}`}
+                  className="text-slate-400 hover:text-emerald-500 transition-colors"
                   aria-label="LinkedIn"
                 >
                   <FaLinkedin size={24} />
@@ -62,14 +50,14 @@ export default function Contact() {
                   href="https://github.com/TirthShahh28"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`hover:text-emerald-500 transition-colors ${isDark ? "text-slate-400" : "text-slate-500"}`}
+                  className="text-slate-400 hover:text-emerald-500 transition-colors"
                   aria-label="GitHub"
                 >
                   <FaGithub size={24} />
                 </a>
                 <a
                   href="mailto:tirth.shah@uconn.edu"
-                  className={`hover:text-emerald-500 transition-colors ${isDark ? "text-slate-400" : "text-slate-500"}`}
+                  className="text-slate-400 hover:text-emerald-500 transition-colors"
                   aria-label="Email"
                 >
                   <FaEnvelope size={24} />

@@ -22,16 +22,6 @@ const lines = [
 
 export default function Hero() {
   const [visibleLines, setVisibleLines] = useState(0);
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      setIsDark(document.body.classList.contains("dark-mode"));
-    });
-    observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
-    setIsDark(document.body.classList.contains("dark-mode"));
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     if (visibleLines < lines.length) {
@@ -46,7 +36,7 @@ export default function Hero() {
   return (
     <section id="hero" className="min-h-[85vh] flex items-center px-6 pt-16">
       <div className="max-w-6xl mx-auto w-full flex flex-col md:flex-row items-center gap-10 md:gap-14">
-        {/* Terminal - always dark themed */}
+        {/* Terminal */}
         <div className="flex-1 w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -106,9 +96,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="shrink-0"
         >
-          <div className={`w-52 h-52 md:w-64 md:h-64 rounded-2xl overflow-hidden border ${
-            isDark ? "border-white/10" : "border-slate-200"
-          }`}>
+          <div className="w-52 h-52 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-white/10">
             <Image
               src="/profile.jpeg"
               alt="Tirth Shah"

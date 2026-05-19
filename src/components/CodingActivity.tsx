@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaCode } from "react-icons/fa";
 import { fadeIn, stagger } from "@/lib/animations";
-import { useEffect, useState } from "react";
 
 const dsaStats = {
   total: { solved: 158, total: 1074 },
@@ -13,21 +12,10 @@ const dsaStats = {
 };
 
 export default function CodingActivity() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      setIsDark(document.body.classList.contains("dark-mode"));
-    });
-    observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
-    setIsDark(document.body.classList.contains("dark-mode"));
-    return () => observer.disconnect();
-  }, []);
-
   const difficulties = [dsaStats.easy, dsaStats.medium, dsaStats.hard];
 
   return (
-    <section id="coding" className="py-10 px-6">
+    <section id="coding" className="py-16 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial="hidden"
@@ -59,7 +47,7 @@ export default function CodingActivity() {
                 <FaGithub className="text-emerald-500" size={20} />
               </div>
               <div>
-                <h3 className={`font-semibold ${isDark ? "text-white" : "text-slate-900"}`}>
+                <h3 className="font-semibold text-white">
                   GitHub Contributions
                 </h3>
                 <p className="text-slate-500 text-xs">
@@ -67,9 +55,7 @@ export default function CodingActivity() {
                 </p>
               </div>
             </div>
-            <div className={`rounded-lg overflow-hidden p-3 border ${
-              isDark ? "bg-[#0d1117] border-white/5" : "bg-slate-50 border-slate-200"
-            }`}>
+            <div className="rounded-lg overflow-hidden p-3 border bg-[#0d1117] border-white/5">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://ghchart.rshah.org/4ade80/TirthShahh28"
@@ -96,7 +82,7 @@ export default function CodingActivity() {
                 <FaCode className="text-emerald-500" size={20} />
               </div>
               <div>
-                <h3 className={`font-semibold ${isDark ? "text-white" : "text-slate-900"}`}>
+                <h3 className="font-semibold text-white">
                   Coding Profile
                 </h3>
                 <p className="text-slate-500 text-xs">
@@ -104,14 +90,12 @@ export default function CodingActivity() {
                 </p>
               </div>
             </div>
-            <div className={`rounded-lg p-5 flex-1 border ${
-              isDark ? "bg-[#141414] border-white/5" : "bg-slate-50 border-slate-200"
-            }`}>
+            <div className="rounded-lg p-5 flex-1 border bg-[#141414] border-white/5">
               {/* Total stat */}
               <div className="text-center mb-5">
                 <p className="text-3xl font-bold text-emerald-500">
                   {dsaStats.total.solved}
-                  <span className={`text-base font-normal ${isDark ? "text-slate-500" : "text-slate-400"}`}>
+                  <span className="text-base font-normal text-slate-500">
                     /{dsaStats.total.total}
                   </span>
                 </p>
@@ -123,16 +107,14 @@ export default function CodingActivity() {
                 {difficulties.map((diff) => (
                   <div key={diff.label}>
                     <div className="flex justify-between text-xs mb-1">
-                      <span className={isDark ? "text-slate-400" : "text-slate-500"}>
+                      <span className="text-slate-400">
                         {diff.label}
                       </span>
-                      <span className={isDark ? "text-slate-300" : "text-slate-600"}>
+                      <span className="text-slate-300">
                         {diff.solved}/{diff.total}
                       </span>
                     </div>
-                    <div className={`w-full h-2 rounded-full overflow-hidden ${
-                      isDark ? "bg-white/5" : "bg-slate-200"
-                    }`}>
+                    <div className="w-full h-2 rounded-full overflow-hidden bg-white/5">
                       <div
                         className={`h-full ${diff.color} rounded-full transition-all duration-500`}
                         style={{ width: `${(diff.solved / diff.total) * 100}%` }}
