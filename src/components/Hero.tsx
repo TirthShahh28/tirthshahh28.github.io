@@ -6,18 +6,25 @@ import { useEffect, useState } from "react";
 
 const lines = [
   { prompt: true, text: "cat > aboutMe.md" },
-  { prompt: false, text: "I'm Tirth Shah" },
-  { prompt: false, text: "M.S. Computer Science @ UConn" },
+  { prompt: false, text: "I'm Tirth Shah \uD83D\uDC4B" },
+  { prompt: false, text: "M.Eng Computer Science @ UConn (May 2026)" },
   {
     prompt: false,
-    text: "I build production-grade AI systems \u2014 RAG pipelines,",
+    text: "I build dependable software \u2014 backend APIs, SQL/data workflows,",
   },
   {
     prompt: false,
-    text: "LLM integrations, search engines & scalable backends.",
+    text: "and production web apps for real users and ops teams.",
+  },
+  {
+    prompt: false,
+    text: "I also ship applied AI features when they solve a clear product problem.",
   },
   { prompt: false, text: "" },
-  { prompt: false, text: "Interests: AI/ML \u00B7 Full-Stack \u00B7 Data Engineering" },
+  {
+    prompt: false,
+    text: "Interests: Backend \u00B7 Enterprise Apps \u00B7 Data \u00B7 Applied AI",
+  },
 ];
 
 export default function Hero() {

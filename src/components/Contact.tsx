@@ -25,10 +25,10 @@ export default function Contact() {
                 Email
               </p>
               <a
-                href="mailto:tirth.shah@uconn.edu"
+                href="mailto:tirthshahh28@gmail.com"
                 className="text-emerald-500 hover:text-emerald-400 transition-colors text-lg"
               >
-                tirth.shah@uconn.edu
+                tirthshahh28@gmail.com
               </a>
             </div>
 
@@ -56,7 +56,7 @@ export default function Contact() {
                   <FaGithub size={24} />
                 </a>
                 <a
-                  href="mailto:tirth.shah@uconn.edu"
+                  href="mailto:tirthshahh28@gmail.com"
                   className="text-slate-400 hover:text-emerald-500 transition-colors"
                   aria-label="Email"
                 >

@@ -13,14 +13,20 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Tirth Shah | AI Engineer",
+  title: "Tirth Shah | Software Engineer",
   description:
-    "Tirth Shah — AI & Software Engineer. M.S. in Computer Science at UConn. Portfolio showcasing AI/ML projects, experience, and skills.",
+    "Software engineer (M.Eng CS @ UConn, May 2026). Backend systems, SQL/data workflows, enterprise web apps, and applied AI.",
   openGraph: {
-    title: "Tirth Shah | AI Engineer",
+    title: "Tirth Shah | Software Engineer",
     description:
-      "AI & Software Engineer — RAG pipelines, LLM integrations, and scalable data systems.",
+      "Software engineer — backend systems, SQL/data workflows, enterprise web apps, and applied AI.",
     type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Tirth Shah | Software Engineer",
+    description:
+      "Software engineer — backend systems, SQL/data workflows, enterprise web apps, and applied AI.",
   },
 };
 
