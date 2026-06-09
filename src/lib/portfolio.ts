@@ -7,7 +7,7 @@ export const identity = {
     "I build dependable software — backend APIs, SQL/data workflows, and production web apps for real users and ops teams. I ship applied AI when it solves a clear product problem.",
   links: {
     github: "https://github.com/TirthShahh28",
-    linkedin: "https://www.linkedin.com/in/tirth-shah",
+    linkedin: "https://www.linkedin.com/in/tirth-shah14/",
     email: "tirth.shah@uconn.edu",
     resume: "/resume.pdf",
   },
@@ -26,9 +26,9 @@ export const terminalLines = [
 ];
 
 export const metrics = [
-  { value: 30000, suffix: "+", label: "products indexed", sub: "AI search @ Capital Spirits" },
+  { value: 30000, suffix: "+", label: "SKUs searched", sub: "4s → 30ms @ Capital Spirits" },
   { value: 40, suffix: "%", label: "manual workload cut", sub: "Python automation @ UConn" },
-  { value: 150, suffix: "+", label: "concurrent sessions", sub: "ResearchGraph agents" },
+  { value: 50000, suffix: "+", label: "codegen requests / day", sub: "AI code-gen SaaS platform" },
   { value: 1000, suffix: "+", label: "students served", sub: "accommodation pipelines" },
 ];
 
@@ -42,13 +42,13 @@ export const chatConfig = {
   ],
   answers: {
     "What's his strongest project?":
-      "ResearchGraph is the standout — three LangGraph agents (research, summarization, citation validation) running on AWS Lambda + Docker, sustaining 150+ concurrent sessions at ~$0.004/query with Prometheus + Ragas quality checks. RoomLock is the strongest pure-backend piece: SELECT FOR UPDATE locking to guarantee no double-booking under load.",
+      "The AI Code-Gen SaaS is the standout — a distributed Spring Boot + Spring AI platform that builds full React apps from prompts, with SSE streaming for 10K+ concurrent sessions at sub-200ms and Kubernetes autoscaling to 50K+ codegen requests/day at 99.9% reliability. RoomLock is the strongest pure-backend piece: PostgreSQL SELECT FOR UPDATE locking to guarantee no double-booking under load.",
     "Does he have backend + AI experience?":
-      "Yes — both, in production. Backend: FastAPI/Next.js REST APIs, PostgreSQL schemas, Stripe + webhook event processing, RBAC, CI/CD. Applied AI: MeiliSearch AI search over 30,000+ products at Capital Spirits, plus LangGraph agents, FAISS RAG, and a LoRA fine-tune of Gemma 2.",
+      "Yes — both, in production. Backend: FastAPI/Next.js/Spring Boot REST APIs, PostgreSQL schemas, Stripe + idempotent webhooks, JWT/RBAC, Kubernetes, and CI/CD. Applied AI: MeiliSearch search over 30,000+ SKUs at Capital Spirits, Spring AI code generation, a Gemma 2 LoRA fine-tune, and FAISS RAG with LangGraph.",
     "Is he available for full-time?":
-      "Yes — Tirth is open to full-time software / AI engineering roles starting 2026, graduating with an M.S. in CS from UConn in May 2026.",
+      "Yes — Tirth is open to full-time software / AI engineering roles starting 2026, graduating with an M.S. in Computer Science from UConn in May 2026.",
     "What's his AI/RAG background?":
-      "RAG and agents are a core focus: FAISS retrieval over AnnoMI dialogues in ReflectivePath, LangGraph multi-agent orchestration with Ragas evaluation in ResearchGraph, a Gemma 2 LoRA fine-tune served via Ollama with a Claude fallback, and MeiliSearch relevance tuning in production.",
+      "RAG and applied AI are a core focus: FAISS retrieval over AnnoMI dialogues with LangGraph state tracking in ReflectivePath, a Gemma 2-2B LoRA fine-tune served via Ollama with a Claude fallback, Spring AI-driven code generation, and MeiliSearch relevance tuning in production.",
     _default:
       "I'm a demo assistant over Tirth's resume. Try one of the suggested questions — ask about his strongest project, his backend + AI experience, availability, or his RAG background.",
   } as Record<string, string>,

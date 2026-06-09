@@ -2,7 +2,7 @@
 
 import { MapPin } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { education } from "@/data/education";
+import { education, leadership } from "@/data/education";
 
 export default function Education() {
   return (
@@ -44,6 +44,24 @@ export default function Education() {
                   ))}
                 </div>
               )}
+            </Reveal>
+          ))}
+        </div>
+
+        <div className="section-head" style={{ marginTop: "var(--s8)" }}>
+          <div>
+            <span className="eyebrow">06 — beyond code</span>
+            <h2 className="section-title">Leadership</h2>
+          </div>
+        </div>
+        <div className="edu-grid">
+          {leadership.map((l, i) => (
+            <Reveal key={l.org} className="edu-card" delay={i * 70}>
+              <div className="edu-degree">{l.role}</div>
+              <div className="edu-school">{l.org}</div>
+              <p className="proj-desc" style={{ marginTop: "var(--s3)" }}>
+                {l.detail}
+              </p>
             </Reveal>
           ))}
         </div>

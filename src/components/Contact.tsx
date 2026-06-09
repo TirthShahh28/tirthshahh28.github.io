@@ -12,7 +12,7 @@ export default function Contact() {
       <div className="wrap">
         <Reveal className="contact-card">
           <span className="eyebrow" style={{ justifyContent: "center" }}>
-            06 — let&apos;s talk
+            07 — let&apos;s talk
           </span>
           <h2 style={{ marginTop: 16 }}>Open to full-time roles in 2026.</h2>
           <p>

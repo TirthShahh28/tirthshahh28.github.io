@@ -10,40 +10,51 @@ export interface ExperienceItem {
 
 export const experience: ExperienceItem[] = [
   {
-    date: "Feb 2025 — Present",
-    role: "AI / Software Engineer Intern",
-    company: "Capital Spirits",
+    date: "Jun 2025 — Mar 2026",
+    role: "Software Engineer",
+    company: "Capital Spirits — Hartford, CT",
     standout: true,
     summary:
-      "Shipping AI search and event-driven backend on a live commerce platform.",
+      "Rebuilt catalog search and owned checkout end-to-end on a multi-location commerce platform.",
     description: [
-      "Integrated AI-powered search engine (MeiliSearch) into production platform, designing indexing pipelines, relevance tuning, and real-time sync for 30,000+ products",
-      "Built RESTful APIs with Next.js and TypeScript for intelligent search and context-aware filtering; implemented webhook-driven event processing for automated workflows",
-      "Deployed Stripe payment integration with event-driven architecture — patterns directly transferable to AI model inference API deployment",
+      "Rebuilt Next.js + TypeScript catalog search by replacing Prisma LIKE queries with MeiliSearch, cutting 30,000+ SKU lookups from 4s to 30ms via a tuned ranking pipeline, typo tolerance, faceted filters, and synonym rules",
+      "Built a Node.js batch indexing pipeline syncing Prisma/PostgreSQL into MeiliSearch with live stock across 3 retail locations, automated facet mapping, and incremental reindex jobs on a cron schedule",
+      "Owned the Stripe Elements checkout end-to-end with idempotent webhooks, server-side price verification, CT 6.35% tax, and duplicate-order guards, eliminating payment disputes across the storefront",
+      "Shipped 3-strategy NextAuth (Google, Apple, email) on JWT sessions with OAuth2 provider linking and a custom Prisma adapter, resolving account-linking edge cases in the sign-up flow",
     ],
-    tags: ["MeiliSearch", "Next.js", "TypeScript", "Stripe", "REST APIs"],
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "MeiliSearch",
+      "PostgreSQL",
+      "Stripe",
+      "NextAuth",
+    ],
   },
   {
-    date: "Sep 2024 — Present",
-    role: "Data & AI Operations Engineer",
-    company: "University of Connecticut — Center for Students with Disabilities",
-    summary: "Python data pipelines for accommodations & exam scheduling.",
+    date: "Sep 2024 — May 2026",
+    role: "Software Engineer",
+    company: "University of Connecticut — Storrs, CT",
+    summary:
+      "Python automation and ETL for accommodations and exam scheduling at scale.",
     description: [
-      "Developed Python automation pipelines for processing accommodation data and exam scheduling across 1,000+ students, reducing manual workload by 40%",
-      "Designed end-to-end data workflows (ingest → transform → validate → serve), reducing manual processing by 35–40% using Pandas and SQL",
+      "Built Python automation for accommodation intake, validation, and exam scheduling for 1,000+ students with Pandas, SQL, and pytest coverage, cutting manual triage by 40% and replacing legacy spreadsheets",
+      "Developed Pandas + SQL ETL workflows with automated data validation and schema checks that blocked malformed records before dashboard refreshes and audit exports, eliminating downstream reconciliation rework",
+      "Benchmarked scikit-learn routing classifiers with precision-recall and confusion-matrix evaluation, lifting routing accuracy 25% and saving ~$12k/year through reduced misrouting",
     ],
-    tags: ["Python", "Pandas", "SQL", "Automation"],
+    tags: ["Python", "Pandas", "SQL", "ETL", "scikit-learn", "pytest"],
   },
   {
-    date: "Jan 2024 — Apr 2024",
-    role: "Software Engineer Intern — Internal Systems",
+    date: "Jan 2022 — Apr 2024",
+    role: "Software Engineer",
     company: "Deconstruct — Bengaluru, India",
-    summary: "Internal admin & ops dashboard replacing spreadsheet workflows.",
+    summary:
+      "Internal admin & order-management platform for a D2C skincare brand.",
     description: [
-      "Built an internal admin & operations dashboard (Python/Django + React) to manage 500+ skincare SKUs across catalog, pricing, inventory, and order status — replacing manual spreadsheet workflows for the ops team",
-      "Designed PostgreSQL schemas and REST APIs for order, inventory, and fulfillment flows with JWT-based RBAC, input validation, and audit logging",
-      "Automated inventory reconciliation and order-status syncing, cutting manual back-office data-entry errors and rework ~40%",
+      "Built an internal admin and order-management platform for a D2C skincare brand with Python, Django, and React, centralizing catalog, pricing, inventory, and fulfillment for 500+ SKUs in one panel for internal staff",
+      "Designed PostgreSQL-backed REST APIs for order, inventory, and returns flows with JWT RBAC, Pydantic validation, and audit logging, replacing manual spreadsheet processes across the operations team",
+      "Shipped Docker-packaged services deployed via GitHub Actions with schema validation and automated tests, cutting back-office data-entry errors and rework 40% across internal tooling",
     ],
-    tags: ["Python", "Django", "React", "PostgreSQL", "REST APIs", "RBAC"],
+    tags: ["Python", "Django", "React", "PostgreSQL", "REST APIs", "Docker"],
   },
 ];

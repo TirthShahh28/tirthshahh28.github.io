@@ -24,7 +24,7 @@ function XPCard({ item }: { item: ExperienceItem }) {
         <div>
           {item.standout && (
             <div className="badge-standout" style={{ marginBottom: 8 }}>
-              <Zap size={14} /> Current · standout role
+              <Zap size={14} /> Flagship role
             </div>
           )}
           <div className="xp-role">{item.role}</div>
