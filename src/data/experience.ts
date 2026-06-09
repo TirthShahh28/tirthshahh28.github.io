@@ -30,12 +30,13 @@ export const experience: ExperienceItem[] = [
   },
   {
     date: "Jan 2024 — Apr 2024",
-    role: "Data Engineering / ML Pipeline Intern",
-    company: "Digital for Humanity",
+    role: "Software Engineer Intern — Internal Systems",
+    company: "Deconstruct — Bengaluru, India",
     description: [
-      "Built data ingestion and ETL pipelines in Python, SQL, and Airflow for large transactional datasets; performed feature engineering and data validation with scikit-learn",
-      "Delivered structured datasets with automated quality checks and logging, enabling downstream analytics and ML experimentation",
+      "Built an internal admin & operations dashboard (Python/Django + React) to manage 500+ skincare SKUs across catalog, pricing, inventory, and order status — replacing manual spreadsheet workflows for the ops team",
+      "Designed PostgreSQL schemas and REST APIs for order, inventory, and fulfillment flows with JWT-based RBAC, input validation, and audit logging",
+      "Automated inventory reconciliation and order-status syncing, cutting manual back-office data-entry errors and rework ~40%",
     ],
-    tags: ["Python", "SQL", "Airflow", "scikit-learn", "ETL"],
+    tags: ["Python", "Django", "React", "PostgreSQL", "REST APIs", "RBAC"],
   },
 ];
