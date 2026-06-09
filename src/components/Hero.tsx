@@ -1,119 +1,165 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
 import { useEffect, useState } from "react";
+import {
+  ArrowRight,
+  Download,
+  Github,
+  Linkedin,
+  Mail,
+} from "lucide-react";
+import Reveal from "@/components/Reveal";
+import { identity, metrics, terminalLines } from "@/lib/portfolio";
+import { fmt, useCountUp } from "@/lib/hooks";
 
-const lines = [
-  { prompt: true, text: "cat > aboutMe.md" },
-  { prompt: false, text: "I'm Tirth Shah \uD83D\uDC4B" },
-  { prompt: false, text: "M.Eng Computer Science @ UConn (May 2026)" },
-  {
-    prompt: false,
-    text: "I build dependable software \u2014 backend APIs, SQL/data workflows,",
-  },
-  {
-    prompt: false,
-    text: "and production web apps for real users and ops teams.",
-  },
-  {
-    prompt: false,
-    text: "I also ship applied AI features when they solve a clear product problem.",
-  },
-  { prompt: false, text: "" },
-  {
-    prompt: false,
-    text: "Interests: Backend \u00B7 Enterprise Apps \u00B7 Data \u00B7 Applied AI",
-  },
-];
-
-export default function Hero() {
-  const [visibleLines, setVisibleLines] = useState(0);
+function Terminal({ compact }: { compact?: boolean }) {
+  const [n, setN] = useState(0);
 
   useEffect(() => {
-    if (visibleLines < lines.length) {
-      const timeout = setTimeout(
-        () => setVisibleLines((v) => v + 1),
-        visibleLines === 0 ? 600 : 400,
-      );
-      return () => clearTimeout(timeout);
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      setN(terminalLines.length);
+      return;
     }
-  }, [visibleLines]);
+    if (n >= terminalLines.length) return;
+    const id = setTimeout(() => setN((v) => v + 1), n === 0 ? 450 : 360);
+    return () => clearTimeout(id);
+  }, [n]);
 
   return (
-    <section id="hero" className="min-h-[85vh] flex items-center px-6 pt-16">
-      <div className="max-w-6xl mx-auto w-full flex flex-col md:flex-row items-center gap-10 md:gap-14">
-        {/* Terminal */}
-        <div className="flex-1 w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="rounded-xl overflow-hidden border border-white/10 bg-[#0e0e0e]">
-              {/* Title bar */}
-              <div className="flex items-center gap-2 px-4 py-3 bg-[#1a1a1a] border-b border-white/5">
-                <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-                <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
-                <div className="w-3 h-3 rounded-full bg-[#28c840]" />
-                <span className="ml-3 text-xs text-slate-500 font-mono">
-                  ~/tirth-shah
-                </span>
-              </div>
-
-              {/* Terminal body */}
-              <div className="p-5 font-mono text-sm leading-7 min-h-65">
-                <p className="text-slate-500 mb-3 text-xs">
-                  # Introducing@Internet
-                </p>
-                {lines.slice(0, visibleLines).map((line, i) => (
-                  <div key={i} className="flex">
-                    {line.prompt ? (
-                      <>
-                        <span className="text-emerald-400 mr-2 select-none">
-                          [ ~ ]$
-                        </span>
-                        <span className="text-emerald-300">{line.text}</span>
-                      </>
-                    ) : (
-                      <span className="text-slate-300">{line.text}</span>
-                    )}
-                  </div>
-                ))}
-                {visibleLines < lines.length && (
-                  <span className="text-emerald-400 cursor-blink">█</span>
-                )}
-                {visibleLines >= lines.length && (
-                  <div className="flex mt-1">
-                    <span className="text-emerald-400 mr-2 select-none">
-                      [ ~ ]$
-                    </span>
-                    <span className="text-emerald-400 cursor-blink">█</span>
-                  </div>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Photo */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="shrink-0"
-        >
-          <div className="w-52 h-52 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-white/10">
-            <Image
-              src="/profile.jpeg"
-              alt="Tirth Shah"
-              width={256}
-              height={256}
-              className="w-full h-full object-cover"
-              priority
-            />
+    <div className="terminal">
+      <div className="term-bar">
+        <span className="tdot" style={{ background: "#ff5f57" }} />
+        <span className="tdot" style={{ background: "#febc2e" }} />
+        <span className="tdot" style={{ background: "#28c840" }} />
+        <span className="name">tirth@portfolio — zsh</span>
+      </div>
+      <div className="term-body" style={compact ? { minHeight: 0 } : undefined}>
+        <p className="comment" style={{ margin: "0 0 10px" }}>
+          # whoami
+        </p>
+        {terminalLines.slice(0, n).map((l, i) => (
+          <div key={i} className="term-line">
+            {l.prompt ? (
+              <>
+                <span className="pmt">❯</span>
+                <span className="pmt-text">{l.text}</span>
+              </>
+            ) : (
+              <span className="out">{l.text || "\u00a0"}</span>
+            )}
           </div>
-        </motion.div>
+        ))}
+        {n >= terminalLines.length && (
+          <div className="term-line">
+            <span className="pmt">❯</span>
+            <span className="cursor" />
+          </div>
+        )}
+        {n < terminalLines.length && <span className="cursor" />}
+      </div>
+    </div>
+  );
+}
+
+function Metric({
+  value,
+  suffix,
+  label,
+  sub,
+}: {
+  value: number;
+  suffix: string;
+  label: string;
+  sub: string;
+}) {
+  const [ref, val] = useCountUp(value);
+  return (
+    <div className="metric" ref={ref}>
+      <div className="num">
+        {fmt(val)}
+        <span className="suf">{suffix}</span>
+      </div>
+      <div className="lab">{label}</div>
+      <div className="sub">{sub}</div>
+    </div>
+  );
+}
+
+function HeroCopy() {
+  const L = identity.links;
+  return (
+    <div>
+      <Reveal className="eyebrow" as="span">
+        software / ai engineer
+      </Reveal>
+      <Reveal as="h1" delay={60}>
+        Backend systems &amp;
+        <br />
+        <span className="accent">applied AI</span> that ship.
+      </Reveal>
+      <Reveal as="p" className="lede" delay={120}>
+        {identity.blurb}
+      </Reveal>
+      <Reveal className="hero-cta" delay={180}>
+        <a href="#projects" className="btn btn-primary">
+          View projects <ArrowRight size={16} />
+        </a>
+        <a
+          href={L.resume}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-ghost"
+        >
+          <Download size={16} /> Download résumé
+        </a>
+      </Reveal>
+      <Reveal className="hero-socials" delay={230}>
+        <a
+          className="icon-btn"
+          href={L.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+        >
+          <Github size={18} />
+        </a>
+        <a
+          className="icon-btn"
+          href={L.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <Linkedin size={18} />
+        </a>
+        <a className="icon-btn" href={`mailto:${L.email}`} aria-label="Email">
+          <Mail size={18} />
+        </a>
+      </Reveal>
+    </div>
+  );
+}
+
+export default function Hero() {
+  return (
+    <section id="hero" className="hero">
+      <div className="wrap">
+        <div className="hero-grid">
+          <HeroCopy />
+          <Reveal delay={140}>
+            <Terminal />
+          </Reveal>
+        </div>
+        <div className="metrics">
+          {metrics.map((m, i) => (
+            <Reveal key={m.label} delay={i * 70}>
+              <Metric {...m} />
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );

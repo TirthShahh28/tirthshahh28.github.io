@@ -1,71 +1,46 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import { fadeIn } from "@/lib/animations";
+import { Github, Linkedin, Mail } from "lucide-react";
+import Reveal from "@/components/Reveal";
+import { identity } from "@/lib/portfolio";
 
 export default function Contact() {
+  const L = identity.links;
+
   return (
-    <section id="contact" className="py-16 px-6">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeIn}
-          className="text-center"
-        >
-          <h2 className="text-xl font-semibold mb-3 text-white">
-            Wanna Build something together?
-          </h2>
-
-          <div className="mt-5 space-y-4">
-            <div>
-              <p className="text-slate-500 text-xs uppercase tracking-wider mb-2">
-                Email
-              </p>
-              <a
-                href="mailto:tirthshahh28@gmail.com"
-                className="text-emerald-500 hover:text-emerald-400 transition-colors text-lg"
-              >
-                tirthshahh28@gmail.com
-              </a>
-            </div>
-
-            <div>
-              <p className="text-slate-500 text-xs uppercase tracking-wider mb-3">
-                Connect with me
-              </p>
-              <div className="flex items-center justify-center gap-6">
-                <a
-                  href="https://www.linkedin.com/in/tirth-shah14/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-emerald-500 transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <FaLinkedin size={24} />
-                </a>
-                <a
-                  href="https://github.com/TirthShahh28"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-emerald-500 transition-colors"
-                  aria-label="GitHub"
-                >
-                  <FaGithub size={24} />
-                </a>
-                <a
-                  href="mailto:tirthshahh28@gmail.com"
-                  className="text-slate-400 hover:text-emerald-500 transition-colors"
-                  aria-label="Email"
-                >
-                  <FaEnvelope size={24} />
-                </a>
-              </div>
-            </div>
+    <section id="contact" className="section-pad contact">
+      <div className="wrap">
+        <Reveal className="contact-card">
+          <span className="eyebrow" style={{ justifyContent: "center" }}>
+            06 — let&apos;s talk
+          </span>
+          <h2 style={{ marginTop: 16 }}>Open to full-time roles in 2026.</h2>
+          <p>
+            Backend, data, or applied-AI engineering — if your team ships things
+            real users depend on, I&apos;d love to chat.
+          </p>
+          <div className="contact-cta">
+            <a className="btn btn-primary" href={`mailto:${L.email}`}>
+              <Mail size={16} /> {L.email}
+            </a>
+            <a
+              className="btn btn-ghost"
+              href={L.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github size={16} /> GitHub
+            </a>
+            <a
+              className="btn btn-ghost"
+              href={L.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Linkedin size={16} /> LinkedIn
+            </a>
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );
